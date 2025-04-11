@@ -41,6 +41,8 @@ startBtn.addEventListener("click", onStartClick);
 
 function onStartClick() {
   startBtn.disabled = true; 
+  datePicker.disabled = true;
+
   const timerId = setInterval(() => {
     const now = new Date();
     const timeLeft = userSelectedDate - now;
@@ -48,6 +50,8 @@ function onStartClick() {
     if (timeLeft <= 0) {
       clearInterval(timerId); 
       updateTimerDisplay(0);  
+      datePicker.disabled = false;
+      startBtn.disabled = true;
       return;
     }
 
